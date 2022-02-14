@@ -32,7 +32,7 @@ def runTest(i):
     print(i)
 
 with mp.Pool(processes = 6) as pool:
-    procs = [pool.apply_async(process,(fl,i)) for i in enumerate(las_files)]
+    procs = [pool.apply_async(process,(fl,i)) for i,fl in enumerate(las_files)]
     [res.wait() for res in procs]
 
 print("done!")
