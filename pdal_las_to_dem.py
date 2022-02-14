@@ -1,6 +1,7 @@
 import pdal
 from pathlib import Path
 import multiprocessing as mp
+import time 
 
 
 def process(fl,i):
@@ -25,9 +26,14 @@ def process(fl,i):
 
 las_files = list(Path("/data/input/files/LIDAR/2015").glob("**/*.las"))[:6]
 
+def runTest(i):
+    print("starting")
+    time.sleep(i)
+    print(i)
+
 with mp.Pool(processes = 6) as pool:
-    procs = [pool.apply_async(process,(fl,i,)) for i,fl in enumerate(las_files)]
-    pool.join()
+    procs = [pool.apply_async(process,(fl,i)) for i in enumerate(las_files)]
+    [res.wait() for res in procs]
 
 print("done!")
 
