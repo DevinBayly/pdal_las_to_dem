@@ -5,8 +5,7 @@ import time
 
 
 def process(fl,i):
-pj =
-f"""
+pj =f"""
 [
       '{fl}',
     {{
