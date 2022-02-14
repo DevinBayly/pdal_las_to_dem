@@ -27,7 +27,8 @@ las_files = list(Path("/data/input/files/LIDAR/2015").glob("**/*.las"))
 
 with mp.Pool(processes = 6) as pool:
     procs = [pool.apply_async(process,(fl,i,)) for i,fl in enumerate(las_files)]
-    [res.wait() for res in procs]
+    pool.close()
+    pool.join()
 
 print("done!")
 
