@@ -5,17 +5,17 @@ import time
 
 
 def process(fl,i):
-pj =f"""
-[
-      '{fl}',
-    {{
-        'filename':'./dtm{i}_{fl.name}.tif',
-        'gdaldriver':'GTiff',
-        'output_type':'all',
-        'resolution':'2.0',
-        'type': 'writers.gdal'
-    }}
-]"""
+    pj =f"""
+      [
+            '{fl}',
+          {{
+              'filename':'./dtm{i}_{fl.name}.tif',
+              'gdaldriver':'GTiff',
+              'output_type':'all',
+              'resolution':'2.0',
+              'type': 'writers.gdal'
+          }}
+    ]"""
     print(pj)
     ##pipeline = pdal.Pipeline(pj)
 
