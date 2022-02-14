@@ -8,7 +8,7 @@ def process(fl,i):
     pj =f'''[
       "{fl}",
     {{
-        "filename":"./dtm{i}_{fl.name}.tif",
+        "filename":"./dtm{i}_{fl.stem}.tif",
         "gdaldriver":"GTiff",
         "output_type":"all",
         "resolution":"2.0",
